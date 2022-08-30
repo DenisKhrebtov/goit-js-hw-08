@@ -21,13 +21,14 @@ function onFormInput(evt) {
 }
 
 function onFormSubmit(evt) {
+  evt.preventDefault();
   if (refs.email.value && refs.message.value) {
-    evt.preventDefault();
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
   } else {
     alert('Необходимо заполнить все поля');
   }
+  console.log(formData);
 }
 
 function populateTextarea() {
