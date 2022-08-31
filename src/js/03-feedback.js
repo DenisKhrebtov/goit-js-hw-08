@@ -11,7 +11,7 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 
 const STORAGE_KEY = 'feedback-form-state';
 
-const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
 populateTextarea();
 
@@ -25,6 +25,7 @@ function onFormSubmit(evt) {
   if (refs.email.value && refs.message.value) {
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
+    formData = {};
   } else {
     alert('Необходимо заполнить все поля');
   }
