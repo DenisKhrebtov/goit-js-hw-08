@@ -25,11 +25,11 @@ function onFormSubmit(evt) {
   if (refs.email.value && refs.message.value) {
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
+    console.log(formData);
     formData = {};
   } else {
     alert('Необходимо заполнить все поля');
   }
-  console.log(formData);
 }
 
 function populateTextarea() {
